@@ -28,7 +28,6 @@ public class WaterDroplet : MonoBehaviour
         {
             direction *= -1;
             timer = Random.Range(0.1f, timerReset);
-
         }
     }
 }

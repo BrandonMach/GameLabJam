@@ -34,7 +34,6 @@ public class DoorForPressurePlate : MonoBehaviour
     {
         if (pressurePlate.GetComponent<PressurePlate>().hasCompleted == true)
         {
-
             pressurePlate.GetComponent<PressurePlate>().enabled = false;
 
             isOpening = true;
