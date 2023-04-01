@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(PlayerContoller))]
+[RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerMovment : MonoBehaviour
