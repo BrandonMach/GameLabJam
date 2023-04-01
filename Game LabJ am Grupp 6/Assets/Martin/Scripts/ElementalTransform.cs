@@ -97,7 +97,6 @@ public class ElementalTransform : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             this.GetComponent<Rigidbody2D>().AddForce(Vector2.down * Time.deltaTime * speedDownInWater);
-            Debug.Log("Hey");
         }
     }
 

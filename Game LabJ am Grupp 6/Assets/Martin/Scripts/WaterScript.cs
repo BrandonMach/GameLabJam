@@ -42,7 +42,7 @@ public class WaterScript : MonoBehaviour
             {
                 Destroy(waterDroplets[i]);
             }
-
+            waterDroplets.Clear();
             waterDroplets = new List<GameObject>();
         }
     }
