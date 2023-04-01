@@ -16,8 +16,8 @@ public class DuckAbilityScript : MonoBehaviour
     void Start()
     {
         windBox.enabled = false;
-        playerMovementScript = GetComponent<PlayerMovment>();
-        playerContorllerScript = GetComponent<PlayerController>();
+        playerMovementScript = this.GetComponent<PlayerMovment>();
+        playerContorllerScript = this.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -36,16 +36,20 @@ public class DuckAbilityScript : MonoBehaviour
         //Timer
         if (Input.GetKeyDown(KeyCode.L) && !useFlabAbility)
         {
+            playerContorllerScript.anim.SetBool("Flap",true);
             windBox.enabled = true;
             useFlabAbility = true;
         }
         if (useFlabAbility)
         {
+
             flapDuration -= Time.deltaTime;
             if(flapDuration <= 0)
             {
                 useFlabAbility = false;
                 windBox.enabled = false;
+                playerContorllerScript.anim.SetBool("Flap", false);
+
                 flapDuration = 1;
             }
         }
