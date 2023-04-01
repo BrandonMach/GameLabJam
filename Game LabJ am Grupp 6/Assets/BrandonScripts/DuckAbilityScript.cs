@@ -11,12 +11,13 @@ public class DuckAbilityScript : MonoBehaviour
     bool useFlabAbility = false;
     PlayerMovment playerMovementScript;
     float flapDuration = 0.5f;
-    
+    PlayerController playerContorllerScript;
 
     void Start()
     {
         windBox.enabled = false;
         playerMovementScript = GetComponent<PlayerMovment>();
+        playerContorllerScript = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
