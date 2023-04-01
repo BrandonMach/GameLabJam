@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(PlayerContoller))]
+[RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class PlayerMovment : MonoBehaviour
@@ -17,13 +17,14 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject characterArrow;
     private void OnValidate()
     {
         playerRb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
-        
+        characterArrow.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,6 +59,11 @@ public class PlayerMovment : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
+    }
+
+    public void ArrowVisable(bool state)
+    {
+        characterArrow.SetActive(state);
     }
 
 }
