@@ -15,9 +15,10 @@ public class MoveFish : MonoBehaviour
     }
     private void Update()
     {
-        float newYPos = fill[1].transform.position.y +
-            (fill[1].sizeDelta.y * slider.value)
-            - (this.GetComponent<RectTransform>().sizeDelta.y);
+        float newYPos = slider.transform.position.y -
+            (slider.GetComponent<RectTransform>().sizeDelta.y * slider.value)
+            + (slider.GetComponent<RectTransform>().sizeDelta.y / 2)
+            /*- ((this.GetComponent<RectTransform>().sizeDelta.y) / 1.5f)*/;
 
         transform.position = new Vector2(transform.position.x, newYPos);
     }
