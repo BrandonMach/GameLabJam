@@ -8,7 +8,15 @@ public class ElementalTransform : MonoBehaviour
     public enum ElementalState { gas = 0, water = 1, ice = 2};
     public ElementalState currentState;
 
-    private float iceSizeX = 2;
+    [SerializeField] GameObject ice;
+    [SerializeField] GameObject water;
+    [SerializeField] GameObject gas;
+
+    [SerializeField] public static int waterMeter = 10;
+
+    private bool canChangeState = true;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +26,7 @@ public class ElementalTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0) && canChangeState)
         {
             currentState++;
             if (currentState > ElementalState.ice)
@@ -50,15 +56,46 @@ public class ElementalTransform : MonoBehaviour
 
     public void WaterState()
     {
+        water.SetActive(true);
+        ice.SetActive(false);
+        gas.SetActive(false);
     }
 
     public void IceState()
     {
-        this.transform.localScale = new Vector3(iceSizeX, transform.localScale.y, 0);
+        water.SetActive(false);
+        ice.SetActive(true);
+        gas.SetActive(false);
     }
 
     public void GasState()
     {
-        this.transform.localScale = new Vector3(1, transform.localScale.y, 0);
+        water.SetActive(false);
+        ice.SetActive(false);
+        gas.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8 && currentState == ElementalState.gas)
+        {
+            canChangeState = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8 && currentState == ElementalState.gas)
+        {
+            canChangeState = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8 && currentState == ElementalState.gas)
+        {
+            canChangeState = true;
+        }
     }
 }
