@@ -28,11 +28,11 @@ public class WaterScript : MonoBehaviour
         {
             Vector2 newPosition = this.transform.position;
 
-            newPosition.y -= this.transform.position.y / 2;
+            newPosition.x = newPosition.x - (this.transform.parent.localScale.x * 1.2f);
 
             for (int i = 0; i < amountOfWaterDroplets; i++)
             {
-                waterDroplets.Add(Instantiate(waterDroplet, this.transform.position, this.transform.rotation, newGameObjectWaterDroplets.transform));
+                waterDroplets.Add(Instantiate(waterDroplet, newPosition, this.transform.rotation, newGameObjectWaterDroplets.transform));
             }
         }
 
@@ -42,7 +42,7 @@ public class WaterScript : MonoBehaviour
             {
                 Destroy(waterDroplets[i]);
             }
-
+            waterDroplets.Clear();
             waterDroplets = new List<GameObject>();
         }
     }
