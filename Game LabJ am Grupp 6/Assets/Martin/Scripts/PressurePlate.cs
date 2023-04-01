@@ -25,10 +25,6 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            plateState = PlateState.goingDown;
-        }
         if (plateState == PlateState.goingDown)
         {
             this.transform.position = Vector2.Lerp(this.transform.position, pushedDownPosition, Time.deltaTime * speed);
@@ -46,6 +42,30 @@ public class PressurePlate : MonoBehaviour
             {
                 plateState = PlateState.nothing;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            plateState = PlateState.goingDown;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            plateState = PlateState.goingDown;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            plateState = PlateState.goingUp;
         }
     }
 }
