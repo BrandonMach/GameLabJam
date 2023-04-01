@@ -18,6 +18,7 @@ public class MindScript : MonoBehaviour
         }
         currentPlayer = playerCharacters[0];
         currentPlayer.GetComponent<PlayerMovment>().enabled = true;
+        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(true);
     }
 
     // Update is called once per frame
@@ -33,7 +34,9 @@ public class MindScript : MonoBehaviour
     public void ChangeCharacter(GameObject newCharacter)
     {
         currentPlayer.GetComponent<PlayerMovment>().enabled = false;
+        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(false);
         currentPlayer = newCharacter;
         currentPlayer.GetComponent<PlayerMovment>().enabled = true;
+        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(true);
     }
 }
