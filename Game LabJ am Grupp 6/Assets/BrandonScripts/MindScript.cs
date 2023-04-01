@@ -9,16 +9,18 @@ public class MindScript : MonoBehaviour
     public GameObject[] playerCharacters;
     [SerializeField] GameObject currentPlayer;
     int characterIndex;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         for (int i = 0; i < playerCharacters.Length; i++)
         {
             playerCharacters[i].GetComponent<PlayerMovment>().enabled = false;
         }
         currentPlayer = playerCharacters[0];
-        currentPlayer.GetComponent<PlayerMovment>().enabled = true;
-        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(true);
+        NewCurrentPlayer();
+        playerCharacters[0].GetComponent<PlayerMovment>().canJump = true; //Only Duck can jump
     }
 
     // Update is called once per frame
@@ -36,6 +38,11 @@ public class MindScript : MonoBehaviour
         currentPlayer.GetComponent<PlayerMovment>().enabled = false;
         currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(false);
         currentPlayer = newCharacter;
+        NewCurrentPlayer();
+    }
+
+    void NewCurrentPlayer()
+    {
         currentPlayer.GetComponent<PlayerMovment>().enabled = true;
         currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(true);
     }
