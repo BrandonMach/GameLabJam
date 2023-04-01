@@ -9,7 +9,7 @@ public class PlayerMovment : MonoBehaviour
     // Start is called before the first frame update
 
     
-    private float horizontalinput;
+    public float horizontalinput;
     private float movementSpeed = 4f;
     public float jumpingPower = 2f;  
     public bool isFaceingRight = false;
