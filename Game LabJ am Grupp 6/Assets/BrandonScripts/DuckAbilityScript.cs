@@ -10,7 +10,8 @@ public class DuckAbilityScript : MonoBehaviour
     public AreaEffector2D windBox;
     bool useFlabAbility = false;
     PlayerMovment playerMovementScript;
-    float flapDuration = 1;
+    float flapDuration = 0.5f;
+    
 
     void Start()
     {
