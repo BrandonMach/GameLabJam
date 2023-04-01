@@ -8,7 +8,7 @@ public class MindScript : MonoBehaviour
 
     public GameObject[] playerCharacters;
     [SerializeField] GameObject currentPlayer;
-    int characterIndex;
+    public int characterIndex;
     
     // Start is called before the first frame update
     void Start()
