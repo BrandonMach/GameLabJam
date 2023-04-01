@@ -24,18 +24,14 @@ public class IceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (parentScript.currentState == ElementalState.ice)
+        if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost)
         {
+            SpawnIcePillar();
+        }
 
-            if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost)
-            {
-                SpawnIcePillar();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha9))
-            {
-                RemoveIcePillar();
-            }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            RemoveIcePillar();
         }
     }
 
