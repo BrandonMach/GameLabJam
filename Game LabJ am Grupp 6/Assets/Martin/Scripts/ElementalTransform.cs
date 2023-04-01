@@ -16,6 +16,8 @@ public class ElementalTransform : MonoBehaviour
 
     private bool canChangeState = true;
 
+    [SerializeField] private float speedDownInWater = 2f;
+
     
     // Start is called before the first frame update
     void Start()
@@ -81,6 +83,8 @@ public class ElementalTransform : MonoBehaviour
         {
             canChangeState = false;
         }
+
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -88,6 +92,12 @@ public class ElementalTransform : MonoBehaviour
         if (collision.gameObject.layer == 8 && currentState == ElementalState.gas)
         {
             canChangeState = false;
+        }
+
+        if (collision.CompareTag("Water"))
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(Vector2.down * Time.deltaTime * speedDownInWater);
+            Debug.Log("Hey");
         }
     }
 

@@ -14,6 +14,8 @@ public class PressurePlate : MonoBehaviour
 
     public enum PlateState { goingUp = 0, goingDown = 1, nothing = 2, down = 3 };
     public PlateState plateState;
+
+    public bool hasCompleted = false;
     void Start()
     {
         pushedDownPosition = this.transform.position;
@@ -30,8 +32,9 @@ public class PressurePlate : MonoBehaviour
             this.transform.position = Vector2.Lerp(this.transform.position, pushedDownPosition, Time.deltaTime * speed);
             if (Vector2.Distance(this.transform.position, pushedDownPosition) < 0.01f)
             {
-
                 plateState = PlateState.down;
+
+                hasCompleted = true;
             }
 
         }
@@ -47,7 +50,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Water"))
         {
             plateState = PlateState.goingDown;
         }
@@ -55,7 +58,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Water"))
         {
             plateState = PlateState.goingDown;
         }
@@ -63,7 +66,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Water"))
         {
             plateState = PlateState.goingUp;
         }

@@ -32,9 +32,8 @@ public class DoorForPressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pressurePlate.GetComponent<PressurePlate>().plateState == PressurePlate.PlateState.down)
+        if (pressurePlate.GetComponent<PressurePlate>().hasCompleted == true)
         {
-
 
             pressurePlate.GetComponent<PressurePlate>().enabled = false;
 
