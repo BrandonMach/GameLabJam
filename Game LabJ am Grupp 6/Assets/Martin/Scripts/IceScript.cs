@@ -33,6 +33,18 @@ public class IceScript : MonoBehaviour
         {
             RemoveIcePillar();
         }
+
+        if (icePillars.Count > 0)
+        {
+            for (int i = 0; i < icePillars.Count; i++)
+            {
+                if (icePillars[i].GetComponent<IcePillar>().Health < 0)
+                {
+                    Destroy(icePillars[i]);
+                    icePillars.RemoveAt(i);
+                }
+            }
+        }
     }
 
     public void SpawnIcePillar()

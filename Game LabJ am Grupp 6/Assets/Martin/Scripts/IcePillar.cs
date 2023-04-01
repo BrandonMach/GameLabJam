@@ -8,6 +8,15 @@ public class IcePillar : MonoBehaviour
 
 
     private Vector2 openingPosition;
+
+    [SerializeField] private float health = 10;
+
+    [SerializeField] private bool shouldTakeDamage = true;
+
+    public float Health
+    {
+        get { return health; }
+    }
     void Start()
     {
         openingPosition = this.transform.position;
@@ -20,5 +29,10 @@ public class IcePillar : MonoBehaviour
     void Update()
     {
         this.transform.position = Vector2.Lerp(this.transform.position, openingPosition, 1 * Time.deltaTime);
+
+        if (shouldTakeDamage)
+        {
+            health -= Time.deltaTime;
+        }
     }
 }
