@@ -31,11 +31,30 @@ public class ElementalTransform : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0) && canChangeState)
         {
             currentState++;
+
             if (currentState > ElementalState.ice)
             {
                 currentState = 0;
             }
             ChangeState(currentState);
+        }
+
+        if (currentState == ElementalState.gas)
+        {
+            
+        }
+
+
+        if (this.transform.GetChild(2).GetComponent<IceScript>().icePillars.Count > 0)
+        {
+            for (int i = 0; i < this.transform.GetChild(2).GetComponent<IceScript>().icePillars.Count; i++)
+            {
+                if (this.transform.GetChild(2).GetComponent<IceScript>().icePillars[i].GetComponent<IcePillar>().Health < 0)
+                {
+                    Destroy(this.transform.GetChild(2).GetComponent<IceScript>().icePillars[i]);
+                    this.transform.GetChild(2).GetComponent<IceScript>().icePillars.RemoveAt(i);
+                }
+            }
         }
     }
 
@@ -83,8 +102,6 @@ public class ElementalTransform : MonoBehaviour
         {
             canChangeState = false;
         }
-
-        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
