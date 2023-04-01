@@ -48,10 +48,13 @@ public class IceScript : MonoBehaviour
     {
         if (icePillars.Count > 0)
         {
+            if (icePillars[0].GetComponent<IcePillar>().Health > 0)
+            {
+                waterMeter += icePillarCost / 2;
+            }
             Destroy(icePillars[0]);
             icePillars.RemoveAt(0);
-
-            waterMeter += icePillarCost / 2;
+            
         }
     }
 }
