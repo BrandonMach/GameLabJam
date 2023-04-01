@@ -17,7 +17,7 @@ public class MoveFish : MonoBehaviour
     {
         float newYPos = fill[1].transform.position.y +
             (fill[1].sizeDelta.y * slider.value)
-            - (this.GetComponent<RectTransform>().sizeDelta.y);
+            - (this.GetComponent<RectTransform>().sizeDelta.y * 1.1f);
 
         transform.position = new Vector2(transform.position.x, newYPos);
     }
