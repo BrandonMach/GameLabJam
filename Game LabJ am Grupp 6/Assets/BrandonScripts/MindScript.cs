@@ -9,41 +9,72 @@ public class MindScript : MonoBehaviour
     public GameObject[] playerCharacters;
     [SerializeField] GameObject currentPlayer;
     public int characterIndex;
+    int currentCharacterIndex;
+
+    Component[] allDuckScripts;
+    Component[] allWaterScripts;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        
-        for (int i = 0; i < playerCharacters.Length; i++)
+
+        playerCharacters[(currentCharacterIndex + 1) % 2].GetComponent<PlayerMovment>().ArrowVisable(false);
+        playerCharacters[currentCharacterIndex].GetComponent<PlayerMovment>().ArrowVisable(true);
+
+
+        allDuckScripts = playerCharacters[0].GetComponents<MonoBehaviour>();
+        allWaterScripts = playerCharacters[1].GetComponents<MonoBehaviour>();
+
+
+
+        foreach (MonoBehaviour scripts in allDuckScripts)
         {
-            playerCharacters[i].GetComponent<PlayerMovment>().enabled = false;
+            scripts.enabled = true;
         }
-        currentPlayer = playerCharacters[0];
-        NewCurrentPlayer();
+        foreach (MonoBehaviour scripts in allWaterScripts)
+        {
+            scripts.enabled = false;
+        }
         playerCharacters[0].GetComponent<PlayerMovment>().canJump = true; //Only Duck can jump
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             characterIndex++;
-            ChangeCharacter(playerCharacters[characterIndex%2]);
+            currentCharacterIndex = characterIndex % 2;
+            playerCharacters[(currentCharacterIndex + 1) % 2].GetComponent<PlayerMovment>().ArrowVisable(false);
+            playerCharacters[currentCharacterIndex].GetComponent<PlayerMovment>().ArrowVisable(true);
+            // ChangeCharacter(playerCharacters[characterIndex%2]);
+            if (characterIndex % 2 == 0)
+            {
+                
+                foreach (MonoBehaviour scripts in allDuckScripts)
+                {
+                    scripts.enabled = true;
+                }
+                foreach (MonoBehaviour scripts in allWaterScripts)
+                {
+                    scripts.enabled = false;
+                }
+            }
+            else
+            {
+                foreach (MonoBehaviour scripts in allWaterScripts)
+                {
+                    scripts.enabled = true;
+                }
+                foreach (MonoBehaviour scripts in allDuckScripts)
+                {
+                    scripts.enabled = false;
+                }
+            }
         }
     }
 
-    public void ChangeCharacter(GameObject newCharacter)
-    {
-        currentPlayer.GetComponent<PlayerMovment>().enabled = false;
-        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(false);
-        currentPlayer = newCharacter;
-        NewCurrentPlayer();
-    }
-
-    void NewCurrentPlayer()
-    {
-        currentPlayer.GetComponent<PlayerMovment>().enabled = true;
-        currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(true);
-    }
 }
