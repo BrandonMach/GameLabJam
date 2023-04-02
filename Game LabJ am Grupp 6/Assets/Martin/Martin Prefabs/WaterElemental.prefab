@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 1042159266331111624}
   - component: {fileID: 1042159266331111631}
   - component: {fileID: 1042159266331111630}
+  - component: {fileID: 1470202218}
   m_Layer: 7
   m_Name: Gas
   m_TagString: Untagged
@@ -286,7 +287,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6814a2a097fd24b1590198aa6bfa1d3d, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,6 +345,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1470202218
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042159266331111629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11c6afbbbfd20c24496fed644ae1a2bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1042159266666686171
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,9 +572,11 @@ MonoBehaviour:
   anim:
   - {fileID: 1971899143}
   - {fileID: 1248685533}
+  - {fileID: 1470202218}
   characters:
   - {fileID: 1042159265268156515}
   - {fileID: 1042159266666686171}
+  - {fileID: 1042159266331111629}
 --- !u!50 &1042159267081938837
 Rigidbody2D:
   serializedVersion: 4
