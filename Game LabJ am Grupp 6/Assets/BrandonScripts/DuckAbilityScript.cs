@@ -53,7 +53,7 @@ public class DuckAbilityScript : MonoBehaviour
                 windBox.enabled = false;
                 playerContorllerScript.anim[0].SetBool("Flap", false);
                 windObject.SetActive(false);
-                flapDuration = 1;
+                flapDuration = 0.5f;
             }
         }
     }

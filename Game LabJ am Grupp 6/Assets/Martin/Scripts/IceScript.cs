@@ -16,6 +16,11 @@ public class IceScript : MonoBehaviour
     private ElementalTransform parentScript;
 
     [SerializeField] GameObject icePillarPrefab;
+    [SerializeField] PlayerController playerControllerScript;
+    private bool spawnPillar = false;
+    private bool destroyPillar = false;
+    private float abilityDuration = 0.5f;
+
     void Start()
     {
         parentScript = this.transform.parent.GetComponent<ElementalTransform>();
@@ -24,15 +29,40 @@ public class IceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost)
+        if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost && !spawnPillar)
         {
-            SpawnIcePillar();
+            playerControllerScript.anim[1].SetBool("IcePillar", true);    
+            spawnPillar = true;
+        }     
+        if (spawnPillar)
+        {
+            abilityDuration -= Time.deltaTime;
+            if (abilityDuration <= 0)
+            {
+                spawnPillar = false;
+                playerControllerScript.anim[1].SetBool("IcePillar", false);
+                abilityDuration = 0.5f;
+                SpawnIcePillar();
+            }
         }
-
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            RemoveIcePillar();
+            playerControllerScript.anim[1].SetBool("IcePillar", true);
+            destroyPillar = true;
         }
+        if (destroyPillar)
+        {
+            abilityDuration -= Time.deltaTime;
+            if (abilityDuration <= 0)
+            {
+                destroyPillar = false;
+                playerControllerScript.anim[1].SetBool("IcePillar", false);
+                abilityDuration = 0.5f;
+                RemoveIcePillar();
+            }
+        }
+
+       
 
     }
 
