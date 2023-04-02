@@ -87,6 +87,7 @@ public class ElementalTransform : MonoBehaviour
         gas.SetActive(false);
 
         //this.GetComponent<PlayerMovment>().enabled = true;
+
     }
 
     public void IceState()

@@ -29,7 +29,6 @@ public class IceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.parent.gameObject.GetComponent<PlayerMovment>().enabled = true;
 
         if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost && !spawnPillar)
         {
@@ -63,9 +62,6 @@ public class IceScript : MonoBehaviour
                 RemoveIcePillar();
             }
         }
-
-       
-
     }
 
     public void SpawnIcePillar()
@@ -86,7 +82,6 @@ public class IceScript : MonoBehaviour
             }
             Destroy(icePillars[0]);
             icePillars.RemoveAt(0);
-            
         }
     }
 }
