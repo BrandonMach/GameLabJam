@@ -131,10 +131,7 @@ public class ElementalTransform : MonoBehaviour
             this.GetComponent<Rigidbody2D>().AddForce(Vector2.down * Time.deltaTime * speedDownInWater);
         }
 
-        if (collision.CompareTag("WaterRefresh"))
-        {
-            waterMeter = 10;
-        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

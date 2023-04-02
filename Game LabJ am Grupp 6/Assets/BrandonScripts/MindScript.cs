@@ -7,12 +7,17 @@ public class MindScript : MonoBehaviour
 
 
     public GameObject[] playerCharacters;
+    public GameObject[] elemntals;
     [SerializeField] GameObject currentPlayer;
     public int characterIndex;
     int currentCharacterIndex;
 
     Component[] allDuckScripts;
     Component[] allWaterScripts;
+    Component[] iceElemntal;
+    Component[] steamElemntal;
+    Component[] waterElemntal;
+    
     
     
     // Start is called before the first frame update
@@ -27,6 +32,12 @@ public class MindScript : MonoBehaviour
         allWaterScripts = playerCharacters[1].GetComponents<MonoBehaviour>();
 
 
+        waterElemntal = elemntals[0].GetComponents<MonoBehaviour>();
+        iceElemntal = elemntals[1].GetComponents<MonoBehaviour>();
+        steamElemntal = elemntals[2].GetComponents<MonoBehaviour>();
+
+
+
 
         foreach (MonoBehaviour scripts in allDuckScripts)
         {
@@ -36,6 +47,20 @@ public class MindScript : MonoBehaviour
         {
             scripts.enabled = false;
         }
+
+
+        foreach (MonoBehaviour scripts in waterElemntal)
+        {
+            scripts.enabled = false;
+        }
+        foreach (MonoBehaviour scripts in iceElemntal)
+        {
+            scripts.enabled = false;
+        }foreach (MonoBehaviour scripts in steamElemntal)
+        {
+            scripts.enabled = false;
+        }
+
         playerCharacters[0].GetComponent<PlayerMovment>().canJump = true; //Only Duck can jump
     }
 
@@ -62,6 +87,20 @@ public class MindScript : MonoBehaviour
                 {
                     scripts.enabled = false;
                 }
+
+
+                foreach (MonoBehaviour scripts in waterElemntal)
+                {
+                    scripts.enabled = false;
+                }
+                foreach (MonoBehaviour scripts in iceElemntal)
+                {
+                    scripts.enabled = false;
+                }
+                foreach (MonoBehaviour scripts in steamElemntal)
+                {
+                    scripts.enabled = false;
+                }
             }
             else
             {
@@ -70,6 +109,19 @@ public class MindScript : MonoBehaviour
                 {
                     scripts.enabled = true;
                 }
+                foreach (MonoBehaviour scripts in waterElemntal)
+                {
+                    scripts.enabled = true;
+                }
+                foreach (MonoBehaviour scripts in iceElemntal)
+                {
+                    scripts.enabled = true;
+                }
+                foreach (MonoBehaviour scripts in steamElemntal)
+                {
+                    scripts.enabled = true;
+                }
+
                 foreach (MonoBehaviour scripts in allDuckScripts)
                 {
                     scripts.enabled = false;
