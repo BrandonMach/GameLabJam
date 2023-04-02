@@ -10,7 +10,7 @@ public class PlayerMovment : MonoBehaviour
 
     
     public float horizontalinput;
-    private float movementSpeed = 4f;
+    public float movementSpeed = 4f;
     public float jumpingPower = 2f;  
     public bool isFaceingRight = false;
     public bool canJump = false;

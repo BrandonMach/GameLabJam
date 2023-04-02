@@ -28,6 +28,7 @@ public class MindScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            
             characterIndex++;
             ChangeCharacter(playerCharacters[characterIndex%2]);
         }
@@ -35,6 +36,7 @@ public class MindScript : MonoBehaviour
 
     public void ChangeCharacter(GameObject newCharacter)
     {
+        currentPlayer.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         currentPlayer.GetComponent<PlayerMovment>().enabled = false;
         currentPlayer.GetComponent<PlayerMovment>().ArrowVisable(false);
         currentPlayer = newCharacter;
