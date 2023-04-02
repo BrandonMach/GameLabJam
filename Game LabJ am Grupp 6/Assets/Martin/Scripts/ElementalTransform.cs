@@ -14,7 +14,7 @@ public class ElementalTransform : MonoBehaviour
 
     public static int waterMeter = 10;
 
-    [SerializeField] int setWaterMeterBeginning = 10;
+    [SerializeField] public int setWaterMeterBeginning = 10;
 
     private bool canChangeState = true;
 
