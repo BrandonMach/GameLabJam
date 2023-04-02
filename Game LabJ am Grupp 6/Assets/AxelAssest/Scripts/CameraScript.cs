@@ -6,12 +6,12 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    MindScript mindScript;
-    CinemachineVirtualCamera vcam;
+    public  MindScript mindScript;
+    public CinemachineVirtualCamera vcam;
     void Start()
     {
         mindScript = GameObject.Find("SwitchCharacterManager").GetComponent<MindScript>();
-        vcam = GetComponent<CinemachineVirtualCamera>();
+        //vcam = GetComponent<CinemachineVirtualCamera>();
     }
 
     // Update is called once per frame
