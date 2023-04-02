@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterDroplet: {fileID: 8034809411492408327, guid: 1ef3a40c285614b34a95493c2205bd12, type: 3}
   amountOfWaterDroplets: 100
+  waterCost: 4
 --- !u!1 &1042159265756459807
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +376,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 016b0220a67344ed5a7a55ff6cd8d927, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -396,7 +397,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 119371069, guid: 332481d87c3ff244cb7abebc7703c85d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -423,8 +424,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.48, y: 0.5}
+    oldSize: {x: 2.14, y: 1.8133334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd7ee76df17e48ba8b0b9d0318e87b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icePillars: []
   icePillarPrefab: {fileID: 7044103907321958702, guid: 509e1273fc4ba4a898fc0608c8f066c5, type: 3}
 --- !u!1 &1042159267081938843
 GameObject:
@@ -499,6 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee7a8ea1acbca04eabbc6a3be29881a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!50 &1042159267081938837
 Rigidbody2D:
   serializedVersion: 4
@@ -532,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a45fbf6bff0b24e889e03dfb2ba1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalinput: 0
   jumpingPower: 5
   isFaceingRight: 0
   canJump: 0
@@ -557,6 +561,7 @@ MonoBehaviour:
   ice: {fileID: 1042159266666686171}
   water: {fileID: 1042159265268156515}
   gas: {fileID: 1042159266331111629}
+  setWaterMeterBeginning: 10
   speedDownInWater: 50
 --- !u!61 &1042159267081938835
 BoxCollider2D:

@@ -99,6 +99,7 @@ public class ElementalTransform : MonoBehaviour
         water.SetActive(false);
         ice.SetActive(false);
         gas.SetActive(true);
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

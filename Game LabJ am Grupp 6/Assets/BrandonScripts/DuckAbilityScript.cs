@@ -38,7 +38,7 @@ public class DuckAbilityScript : MonoBehaviour
         //Timer
         if (Input.GetKeyDown(KeyCode.L) && !useFlabAbility)
         {
-            playerContorllerScript.anim.SetBool("Flap", true);
+            playerContorllerScript.anim[0].SetBool("Flap", true);
             windBox.enabled = true;
             windObject.SetActive(true);
             useFlabAbility = true;
@@ -51,7 +51,7 @@ public class DuckAbilityScript : MonoBehaviour
             {
                 useFlabAbility = false;
                 windBox.enabled = false;
-                playerContorllerScript.anim.SetBool("Flap", false);
+                playerContorllerScript.anim[0].SetBool("Flap", false);
                 windObject.SetActive(false);
                 flapDuration = 1;
             }
