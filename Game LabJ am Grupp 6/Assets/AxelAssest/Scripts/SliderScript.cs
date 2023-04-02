@@ -16,6 +16,6 @@ public class SliderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = ET.setWaterMeterBeginning;
+        slider.value = (float)ET.setWaterMeterBeginning / 10;
     }
 }
