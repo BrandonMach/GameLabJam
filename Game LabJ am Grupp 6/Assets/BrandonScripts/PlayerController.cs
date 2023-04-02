@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Animator anim;
+    public List<Animator> anim;
     PlayerMovment playerMovementScript;
     void Start()
     {
@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Speed", Mathf.Abs( playerMovementScript.horizontalinput));
+        //anim 0 = walk animation
+        for (int i = 0; i < anim.Count; i++)
+        {
+            anim[i].SetFloat("Speed", Mathf.Abs(playerMovementScript.horizontalinput));
+        }
+      
     }
 }

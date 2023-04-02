@@ -9,9 +9,18 @@ public class IcePillar : MonoBehaviour
 
     private Vector2 openingPosition;
 
+    private Vector2 originalPosition;
+
     [SerializeField] private float health = 10;
 
     [SerializeField] private bool shouldTakeDamage = true;
+
+    [SerializeField] private float deteriationSpeed = 1f;
+
+    [SerializeField] private float upSpeed = 1f;
+    [SerializeField] private float downSpeed = 0.25f;
+
+    public bool shouldDie = false;
 
     public float Health
     {
@@ -23,16 +32,31 @@ public class IcePillar : MonoBehaviour
 
         openingPosition.y += transform.localScale.y;
 
+        originalPosition = this.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = Vector2.Lerp(this.transform.position, openingPosition, 1 * Time.deltaTime);
+        
 
         if (shouldTakeDamage)
         {
-            health -= Time.deltaTime;
+            health -= Time.deltaTime * deteriationSpeed;
+        }
+
+        if (health < 0)
+        {
+            this.transform.position = Vector2.Lerp(this.transform.position, originalPosition, downSpeed * Time.deltaTime);
+            if (Vector2.Distance(this.transform.position, originalPosition) < 0.1f)
+            {
+                shouldDie = true;
+            }
+        }
+        else
+        {
+            this.transform.position = Vector2.Lerp(this.transform.position, openingPosition, upSpeed * Time.deltaTime);
         }
     }
 }

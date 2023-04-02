@@ -9,18 +9,21 @@ public class DuckAbilityScript : MonoBehaviour
     [Header("Flapp Ability")]
     public AreaEffector2D windBox;
     bool useFlabAbility = false;
-    PlayerMovment playerMovementScript;
+    public PlayerMovment playerMovementScript;
     float flapDuration = 0.5f;
-    
+    public PlayerController playerContorllerScript;
+    public GameObject windObject;
 
     void Start()
     {
+
         windBox.enabled = false;
+        windObject.SetActive(false);
         playerMovementScript = GetComponent<PlayerMovment>();
+        playerContorllerScript = GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
         if (playerMovementScript.isFaceingRight)
@@ -31,20 +34,25 @@ public class DuckAbilityScript : MonoBehaviour
         {
             windBox.forceAngle = 180;
         }
-       
+
         //Timer
         if (Input.GetKeyDown(KeyCode.L) && !useFlabAbility)
         {
+            playerContorllerScript.anim[0].SetBool("Flap", true);
             windBox.enabled = true;
+            windObject.SetActive(true);
             useFlabAbility = true;
         }
         if (useFlabAbility)
         {
+
             flapDuration -= Time.deltaTime;
-            if(flapDuration <= 0)
+            if (flapDuration <= 0)
             {
                 useFlabAbility = false;
                 windBox.enabled = false;
+                playerContorllerScript.anim[0].SetBool("Flap", false);
+                windObject.SetActive(false);
                 flapDuration = 1;
             }
         }

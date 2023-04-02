@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 428285226}
   - component: {fileID: 428285225}
   - component: {fileID: 428285224}
+  - component: {fileID: 375827465}
   m_Layer: 0
-  m_Name: windTest (1)
+  m_Name: wind Gust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 317b01531b0b96948a8323675d2f7db8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca4d0bb182073cc45b187520e2fd03ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 7.35, y: 3.84}
@@ -103,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.35, y: 3.84}
+    oldSize: {x: 8.8, y: 3.3}
     newSize: {x: 7.35, y: 3.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -132,6 +133,27 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_Drag: 0
   m_AngularDrag: 0
+--- !u!95 &375827465
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428285222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 196154b0c5eb68040b30443bad995c2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &709088464
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,8 +252,9 @@ GameObject:
   - component: {fileID: 4310815472844920039}
   - component: {fileID: 4310815472844920033}
   - component: {fileID: 4310815472844920043}
-  - component: {fileID: 137809824}
   - component: {fileID: 137809817}
+  - component: {fileID: 137809824}
+  - component: {fileID: 7874072803588967492}
   m_Layer: 0
   m_Name: placeholder-duck
   m_TagString: Untagged
@@ -391,6 +414,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 137809824}
+--- !u!114 &137809817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310815472844920034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c4f71ad863b7149a23754b21ae35f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windBox: {fileID: 428285224}
+  playerMovementScript: {fileID: 4310815472844920033}
+  playerContorllerScript: {fileID: 4310815472844920043}
 --- !u!95 &137809824
 Animator:
   serializedVersion: 5
@@ -412,7 +450,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &137809817
+--- !u!114 &7874072803588967492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,7 +462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c4f71ad863b7149a23754b21ae35f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windBox: {fileID: 428285224}
+  windBox: {fileID: 0}
+  playerMovementScript: {fileID: 0}
+  playerContorllerScript: {fileID: 0}
 --- !u!1 &4310815472882074787
 GameObject:
   m_ObjectHideFlags: 0
