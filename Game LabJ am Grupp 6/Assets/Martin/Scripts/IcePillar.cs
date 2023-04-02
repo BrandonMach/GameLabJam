@@ -30,7 +30,7 @@ public class IcePillar : MonoBehaviour
     {
         openingPosition = this.transform.position;
 
-        openingPosition.y += transform.localScale.y;
+        openingPosition.y += transform.localScale.y/1.5f;
 
         originalPosition = this.transform.position;
 

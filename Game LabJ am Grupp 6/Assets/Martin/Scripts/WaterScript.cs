@@ -26,6 +26,7 @@ public class WaterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Alpha8) && ElementalTransform.waterMeter >= waterCost)
         {
             Vector2 newPosition = this.transform.position;

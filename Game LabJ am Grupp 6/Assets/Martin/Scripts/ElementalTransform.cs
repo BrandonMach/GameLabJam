@@ -85,6 +85,9 @@ public class ElementalTransform : MonoBehaviour
         water.SetActive(true);
         ice.SetActive(false);
         gas.SetActive(false);
+
+        this.GetComponent<PlayerMovment>().enabled = true;
+
     }
 
     public void IceState()
@@ -92,6 +95,7 @@ public class ElementalTransform : MonoBehaviour
         water.SetActive(false);
         ice.SetActive(true);
         gas.SetActive(false);
+        this.GetComponent<PlayerMovment>().enabled = true;
     }
 
     public void GasState()
@@ -99,7 +103,8 @@ public class ElementalTransform : MonoBehaviour
         water.SetActive(false);
         ice.SetActive(false);
         gas.SetActive(true);
-       
+        this.GetComponent<PlayerMovment>().enabled = false;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -107,6 +112,11 @@ public class ElementalTransform : MonoBehaviour
         if (collision.gameObject.layer == 8 && currentState == ElementalState.gas)
         {
             canChangeState = false;
+        }
+
+        if (collision.CompareTag("WaterRefresh"))
+        {
+            waterMeter = 10;
         }
     }
 
@@ -120,6 +130,11 @@ public class ElementalTransform : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             this.GetComponent<Rigidbody2D>().AddForce(Vector2.down * Time.deltaTime * speedDownInWater);
+        }
+
+        if (collision.CompareTag("WaterRefresh"))
+        {
+            waterMeter = 10;
         }
     }
 

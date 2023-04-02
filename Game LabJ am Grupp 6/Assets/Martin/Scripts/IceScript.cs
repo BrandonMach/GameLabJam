@@ -11,7 +11,7 @@ public class IceScript : MonoBehaviour
 
     public List<GameObject> icePillars = new List<GameObject>();
 
-    private int icePillarCost = 4;
+    [SerializeField] private int icePillarCost = 2;
 
     private ElementalTransform parentScript;
 
@@ -29,6 +29,8 @@ public class IceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.transform.parent.gameObject.GetComponent<PlayerMovment>().enabled = true;
+
         if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost && !spawnPillar)
         {
             playerControllerScript.anim[1].SetBool("IcePillar", true);    
