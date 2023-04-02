@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Update is called once per frame
-        void Update()
+    void Update()
     {
         //anim 0 = walk animation
         for (int i = 0; i < anim.Count; i++)
