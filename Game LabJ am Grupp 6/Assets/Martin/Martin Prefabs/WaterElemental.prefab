@@ -637,7 +637,7 @@ MonoBehaviour:
   ice: {fileID: 1042159266666686171}
   water: {fileID: 1042159265268156515}
   gas: {fileID: 1042159266331111629}
-  setWaterMeterBeginning: 10
+  setWaterMeterBeginning: 6
   speedDownInWater: 50
 --- !u!61 &1042159267081938835
 BoxCollider2D:

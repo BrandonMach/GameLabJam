@@ -129,14 +129,14 @@ GameObject:
   - component: {fileID: 6672606473137342505}
   - component: {fileID: 6672606473137342508}
   - component: {fileID: 6672606473137342509}
-  - component: {fileID: 183592949}
+  - component: {fileID: 1888778477}
   m_Layer: 0
   m_Name: Fish_Bowl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6672606473137342504
 Transform:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalinput: 0
+  movementSpeed: 4
   jumpingPower: 5
   isFaceingRight: 0
   canJump: 0
@@ -287,8 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee7a8ea1acbca04eabbc6a3be29881a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 183592949}
---- !u!95 &183592949
+  anim:
+  - {fileID: 0}
+  characters: []
+--- !u!95 &1888778477
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

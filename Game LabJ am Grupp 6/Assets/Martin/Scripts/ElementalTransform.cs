@@ -32,7 +32,7 @@ public class ElementalTransform : MonoBehaviour
     void Update()
     {
         setWaterMeterBeginning = waterMeter;
-        if (Input.GetKeyDown(KeyCode.Alpha0) && canChangeState)
+        if (Input.GetKeyDown(KeyCode.L) && canChangeState)
         {
             currentState++;
 
@@ -86,7 +86,7 @@ public class ElementalTransform : MonoBehaviour
         ice.SetActive(false);
         gas.SetActive(false);
 
-        //this.GetComponent<PlayerMovment>().enabled = true;
+        this.GetComponent<PlayerMovment>().enabled = true;
 
     }
 
@@ -95,7 +95,7 @@ public class ElementalTransform : MonoBehaviour
         water.SetActive(false);
         ice.SetActive(true);
         gas.SetActive(false);
-        //this.GetComponent<PlayerMovment>().enabled = true;
+        this.GetComponent<PlayerMovment>().enabled = true;
     }
 
     public void GasState()
@@ -104,6 +104,7 @@ public class ElementalTransform : MonoBehaviour
         ice.SetActive(false);
         gas.SetActive(true);
         this.GetComponent<PlayerMovment>().enabled = false;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

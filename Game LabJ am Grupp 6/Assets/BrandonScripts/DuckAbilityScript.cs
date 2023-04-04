@@ -36,7 +36,7 @@ public class DuckAbilityScript : MonoBehaviour
         }
 
         //Timer
-        if (Input.GetKeyDown(KeyCode.L) && !useFlabAbility)
+        if (Input.GetKeyDown(KeyCode.J) && !useFlabAbility)
         {
             playerContorllerScript.anim[0].SetBool("Flap", true);
             windBox.enabled = true;

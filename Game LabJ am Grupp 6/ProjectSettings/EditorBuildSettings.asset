@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AxelAssest/Scenes/AxelScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/AxelAssest/Scenes/mainMenuScene.unity
+    guid: e63df7d6fa79816448c36f02e7b1478c
+  - enabled: 1
+    path: Assets/AxelAssest/Scenes/YoSCene.unity
+    guid: 8cd1237af0bf9b543bfad4736ba34904
   m_configObjects: {}

@@ -69,7 +69,7 @@ public class MindScript : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             characterIndex++;
             currentCharacterIndex = characterIndex % 2;
@@ -78,7 +78,7 @@ public class MindScript : MonoBehaviour
             // ChangeCharacter(playerCharacters[characterIndex%2]);
             if (characterIndex % 2 == 0)
             {
-                playerCharacters[1].GetComponent<Rigidbody2D>().velocity = new Vector2(0,0) ;
+                playerCharacters[1].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 foreach (MonoBehaviour scripts in allDuckScripts)
                 {
                     scripts.enabled = true;
@@ -104,7 +104,7 @@ public class MindScript : MonoBehaviour
             }
             else
             {
-                playerCharacters[0].GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                playerCharacters[0].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 foreach (MonoBehaviour scripts in allWaterScripts)
                 {
                     scripts.enabled = true;

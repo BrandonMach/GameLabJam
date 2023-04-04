@@ -27,7 +27,7 @@ public class WaterScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha8) && ElementalTransform.waterMeter >= waterCost)
+        if (Input.GetKeyDown(KeyCode.J) && ElementalTransform.waterMeter >= waterCost)
         {
             Vector2 newPosition = this.transform.position;
 
@@ -41,7 +41,7 @@ public class WaterScript : MonoBehaviour
             ElementalTransform.waterMeter -= waterCost;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             ElementalTransform.waterMeter += (int)(waterDroplets.Count / 33);
             for (int i = 0; i < waterDroplets.Count; i++)

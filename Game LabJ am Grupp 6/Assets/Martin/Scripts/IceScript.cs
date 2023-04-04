@@ -30,7 +30,7 @@ public class IceScript : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha8) && waterMeter >= icePillarCost && !spawnPillar)
+        if (Input.GetKeyDown(KeyCode.J) && waterMeter >= icePillarCost && !spawnPillar)
         {
             playerControllerScript.anim[1].SetBool("IcePillar", true);    
             spawnPillar = true;
@@ -46,7 +46,7 @@ public class IceScript : MonoBehaviour
                 SpawnIcePillar();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             playerControllerScript.anim[1].SetBool("IcePillar", true);
             destroyPillar = true;
