@@ -20,6 +20,7 @@ public class ElementalTransform : MonoBehaviour
 
     [SerializeField] private float speedDownInWater = 2f;
 
+    //public HudScripts hudScript;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class ElementalTransform : MonoBehaviour
     void Update()
     {
         setWaterMeterBeginning = waterMeter;
-        if (Input.GetKeyDown(KeyCode.L) && canChangeState)
+        if (Input.GetKeyDown(KeyCode.Space) && canChangeState)
         {
             currentState++;
 
